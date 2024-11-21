@@ -45,7 +45,6 @@ const HomePage = () => {
                         <video
                             className="w-full object-cover"
                             src={cofferBeerCupPreview}
-                            type="video/mp4"
                             autoPlay
                             loop
                             muted

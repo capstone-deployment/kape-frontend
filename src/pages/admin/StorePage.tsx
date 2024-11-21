@@ -18,7 +18,7 @@ interface Store {
     latitude: string;
     longitude: string;
     store_id: string; // Add an id to each store for identification
-    action: string;
+    actions: string;
 }
 
 // Create a column helper for the Store type

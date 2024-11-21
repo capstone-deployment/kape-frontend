@@ -97,8 +97,8 @@ const formatDate = (dateString: string) => {
 };
 
 // Process the data to sum total_amount by order_date and order_type
-const processedData = rawData.reduce(
-    (acc, { order_date, order_type, total_amount }) => {
+const processedData: ProcessedData = rawData.reduce(
+    (acc: any, { order_date, order_type, total_amount }) => {
         const date = formatDate(order_date);
         const amount = parseFloat(total_amount);
 
@@ -141,6 +141,12 @@ const chartData = {
     ],
 };
 
+type ProcessedData = {
+    [key: string]: {
+        [key: string]: number;
+    };
+};
+
 const KPIChart = () => {
     const chartRef = useRef<HTMLCanvasElement | null>(null); // Type the ref correctly
 
@@ -176,7 +182,7 @@ const KPIChart = () => {
 
     return (
         <div>
-            <Bar data={chartRef} /> {/* This will hold the chart */}
+            <Bar data={chartData} /> {/* This will hold the chart */}
         </div>
     );
 };

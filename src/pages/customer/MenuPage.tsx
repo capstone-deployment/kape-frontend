@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Navbar from "../../components/Navbar";
 import { getTopSoldProducts } from "../../services/orders.service";
 import { Carousel } from "flowbite-react";
@@ -17,12 +17,9 @@ interface ProductInterface {
 
 const MenuPage = () => {
     const [topProducts, setTopProducts] = useState<any[]>([]);
-    const [products, setProducts] = useState<ProductInterface[]>([]);
     const [meals, setMeals] = useState<ProductInterface[]>([]);
 
     const [drinks, setDrinks] = useState<ProductInterface[]>([]);
-
-    const [productType, setProductType] = useState<string>("all");
 
     useEffect(() => {
         const fetchTopSoldProducts = async () => {
@@ -60,18 +57,6 @@ const MenuPage = () => {
         fetchMeals();
         fetchDrinks();
     }, []);
-
-    const handleFilterChange = (
-        event: React.ChangeEvent<HTMLSelectElement>
-    ) => {
-        setProductType(event.target.value);
-    };
-
-    const filteredItems = products.filter((item) => {
-        if (productType === "all") return true;
-        if (productType === "meal") return item.product_type === "meal";
-        if (productType === "drink") return item.product_type === "drink";
-    });
 
     return (
         <main>

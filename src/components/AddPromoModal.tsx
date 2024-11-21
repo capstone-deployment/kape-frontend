@@ -63,8 +63,9 @@ const AddPromoModal = ({
                     {
                         method: "POST",
                         headers: {
-                            jwt_token: localStorage.getItem("token"), // Token for authentication
+                            jwt_token: localStorage.getItem("token") || "", // Token for authentication
                         },
+
                         body: formData, // FormData will automatically handle Content-Type
                     }
                 );

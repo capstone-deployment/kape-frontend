@@ -60,6 +60,7 @@ const DashboardPage = () => {
     const [topSold, setTopSold] = useState([]);
     const storeID: string = localStorage.getItem("store_id") || "";
     console.log(storeID);
+
     const months = [
         "January",
         "February",
@@ -252,11 +253,11 @@ const DashboardPage = () => {
                 data: [
                     // Sum of Dine In and Take Out sales for each store
                     Object.values(saleType).reduce(
-                        (acc, sales) => acc + sales.dineIn,
+                        (acc, sales: any) => acc + sales.dineIn,
                         0
                     ),
                     Object.values(saleType).reduce(
-                        (acc, sales) => acc + sales.takeOut,
+                        (acc, sales: any) => acc + sales.takeOut,
                         0
                     ),
                 ],
