@@ -30,7 +30,7 @@ const HomePage = () => {
                             </Link>
                         </div>
                     </div>
-                    <div className="hero__image__content h-full w-[45%] items-center justify-center hidden sm:flex">
+                    <div className="hero__image__contents s h-full w-[45%] items-center justify-center hidden sm:flex">
                         <img
                             src={coffeeBeerCup}
                             alt="coffee-beer-cup.png"
