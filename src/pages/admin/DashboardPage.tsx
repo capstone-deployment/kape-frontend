@@ -331,9 +331,10 @@ const DashboardPage = () => {
                         ""
                     )}
                 </div>
-                <div className="stats shadow mb-4 w-full">
-                    <div className="stat">
-                        <div className="stat-figure text-primary">
+                {/* 3d2a21, 5d422b, 281811,644e43,  442a13 */}
+                {/* <div className="stats shadow mb-4 w-full text-white">
+                    <div className="stat bg-[#3d2a21]">
+                        <div className="stat-figure">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 fill="none"
@@ -349,13 +350,11 @@ const DashboardPage = () => {
                             </svg>
                         </div>
                         <div className="stat-title">Total Sales</div>
-                        <div className="stat-value text-primary">
-                            {salesCount}
-                        </div>
+                        <div className="stat-value">{salesCount}</div>
                         <div className="stat-desc">Items sold</div>
                     </div>
 
-                    <div className="stat">
+                    <div className="stat bg-[#5d422b]">
                         <div className="stat-figure text-secondary">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -425,7 +424,118 @@ const DashboardPage = () => {
                             Number of product categories
                         </div>
                     </div>
+                </div> */}
+
+                <div className="stats shadow mb-4 w-full text-white">
+                    <div className="stat bg-white">
+                        <div className="stat-figure text-[#3d2a21]">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                className="inline-block h-8 w-8 stroke-current"
+                            >
+                                <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    strokeWidth="2"
+                                    d="M6 12l6-6 6 6"
+                                ></path>
+                            </svg>
+                        </div>
+                        <div className="stat-title text-[#3d2a21]">
+                            Total Sales
+                        </div>
+                        <div className="stat-value text-[#3d2a21]">
+                            {salesCount}
+                        </div>
+                        <div className="stat-desc text-[#3d2a21]">
+                            Items sold
+                        </div>
+                    </div>
+
+                    <div className="stat bg-white">
+                        <div className="stat-figure text-[#5d422b]">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                className="inline-block h-8 w-8 stroke-current"
+                            >
+                                <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    strokeWidth="2"
+                                    d="M12 9V3l-7 9h7v7l9-11h-7z"
+                                ></path>
+                            </svg>
+                        </div>
+                        <div className="stat-title text-[#5d422b]">
+                            Total Products
+                        </div>
+                        <div className="stat-value text-[#5d422b]">
+                            {productsCount}
+                        </div>
+                        <div className="stat-desc text-[#5d422b]">
+                            Available products
+                        </div>
+                    </div>
+
+                    <div className="stat bg-white">
+                        <div className="stat-figure text-[#644e43]">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                className="inline-block h-8 w-8 stroke-current"
+                            >
+                                <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    strokeWidth="2"
+                                    d="M4 6h16M4 12h16m-7 6h7"
+                                ></path>
+                            </svg>
+                        </div>
+                        <div className="stat-title text-[#644e43]">
+                            Total Sales Amount
+                        </div>
+                        <div className="stat-value text-[#644e43]">
+                            Php {totalSales.toLocaleString()}
+                        </div>
+                        <div className="stat-desc text-[#644e43]">
+                            Total revenue
+                        </div>
+                    </div>
+
+                    <div className="stat bg-white">
+                        <div className="stat-figure text-[#442a13]">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                className="inline-block h-8 w-8 stroke-current"
+                            >
+                                <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    strokeWidth="2"
+                                    d="M12 4v16m8-8H4"
+                                ></path>
+                            </svg>
+                        </div>
+                        <div className="stat-title text-[#442a13]">
+                            Total Categories
+                        </div>
+                        <div className="stat-value text-[#442a13]">
+                            {categoryCount}
+                        </div>
+                        <div className="stat-desc text-[#442a13]">
+                            Number of product categories
+                        </div>
+                    </div>
                 </div>
+
                 <div className="flex gap-2 mb-4">
                     <div className="chart-container w-[50%] border border-amber-600 p-3 rounded-md">
                         <h2 className="text-xl mb-4 text-center">

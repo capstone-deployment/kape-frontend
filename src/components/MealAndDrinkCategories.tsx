@@ -99,7 +99,7 @@ const MealAndDrinkCategories: React.FC<MealAndDrinkCategoriesProps> = ({
             ) : (
                 <div>
                     <button
-                        className="btn btn-primary mb-5"
+                        className="btn bg-amber-900 text-white hover:bg-amber-900 mb-5"
                         onClick={() => setSelectedCategory(null)}
                     >
                         Back to Categories

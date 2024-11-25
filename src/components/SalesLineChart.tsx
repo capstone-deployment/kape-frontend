@@ -22,7 +22,8 @@ ChartJS.register(
 );
 
 const SalesLineChart = (orders: any) => {
-    // const orders = [
+    console.log(orders, "asdasd");
+    // const orderss = [
     //     {
     //         order_id: 120,
     //         order_date: "2024-12-12T02:44:00.000Z",
@@ -52,7 +53,7 @@ const SalesLineChart = (orders: any) => {
 
     // Group orders by month and calculate the most selling hour per month
     const groupedByMonth: any = {};
-    orders.forEach((order: any) => {
+    orders.orders.forEach((order: any) => {
         const date = new Date(order.order_date);
         const month = date.getMonth() + 1; // Months are 0-indexed
         const hour = date.getHours();

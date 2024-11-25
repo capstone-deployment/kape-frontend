@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { addManager } from "../services/users.service";
+import { getStoreLocations } from "../services/stores.service";
 
 interface AddManagerModalProps {
     showAddModal: boolean;
@@ -17,6 +18,22 @@ const AddManagerModal = ({
     const [birthDate, setBirthDate] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [store_id, setStoreId] = useState(""); // Selected store ID
+    const [stores, setStores] = useState([]); // List of stores
+
+    useEffect(() => {
+        const fetchStores = async () => {
+            try {
+                const stores = await getStoreLocations(); // Assuming this function fetches store locations
+                setStores(stores);
+                console.log(stores);
+            } catch (error) {
+                console.error(error);
+            }
+        };
+
+        fetchStores();
+    }, []);
 
     // Function to reset form fields
     const resetForm = () => {
@@ -25,6 +42,7 @@ const AddManagerModal = ({
         setBirthDate("");
         setEmail("");
         setPassword("");
+        setStoreId(""); // Reset store selection
     };
 
     useEffect(() => {
@@ -50,6 +68,7 @@ const AddManagerModal = ({
             birthDate,
             email,
             password,
+            store_id, // Include selected store ID in user data
         };
 
         try {
@@ -135,6 +154,33 @@ const AddManagerModal = ({
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                         />
+                    </label>
+                    <label className="form-control w-full mb-2">
+                        <div className="label">
+                            <span className="label-text">Store</span>
+                        </div>
+                        <select
+                            className="select select-bordered w-full rounded-md"
+                            value={store_id}
+                            onChange={(e) => setStoreId(e.target.value)}
+                        >
+                            <option value="" disabled>
+                                Select a store
+                            </option>
+                            {stores.map(
+                                (store: {
+                                    store_id: string;
+                                    store_name: string;
+                                }) => (
+                                    <option
+                                        key={store.store_id}
+                                        value={store.store_id}
+                                    >
+                                        {store.store_name}
+                                    </option>
+                                )
+                            )}
+                        </select>
                     </label>
                     <button
                         type="submit"

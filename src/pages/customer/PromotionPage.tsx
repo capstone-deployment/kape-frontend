@@ -35,14 +35,22 @@ const PromotionPage = () => {
                         </h2>
                     </div>
                     <Carousel className="h-[50%]">
-                        {promotions.map((promo: any, index: number) => (
-                            <img
-                                src={promo.promo_image}
-                                key={index}
-                                alt={promo.promo_image}
-                                className="mt-5 w-[90vw] h-96 object-contain rounded-lg" // Limit image height
-                            />
-                        ))}
+                        {promotions.length === 0 ? (
+                            <div className="flex justify-center items-center h-96 w-full bg-amber-50 rounded-lg">
+                                <span className="text-2xl text-amber-950">
+                                    <h1 className="title">Upcoming Soon</h1>
+                                </span>
+                            </div>
+                        ) : (
+                            promotions.map((promo: any, index: number) => (
+                                <img
+                                    src={promo.promo_image}
+                                    key={index}
+                                    alt={promo.promo_image}
+                                    className="mt-5 w-[90vw] h-96 object-contain rounded-lg"
+                                />
+                            ))
+                        )}
                     </Carousel>
                 </div>
             </section>

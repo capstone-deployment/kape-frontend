@@ -35,20 +35,44 @@ const Footer = () => {
                     </div>
 
                     <div className="links flex justify-center w-full gap-10 sm:text-base text-sm">
-                        <FontAwesomeIcon
-                            icon={faFacebook}
-                            className="text-white sm:w-8 w-4 sm:h-8 h-4"
-                        />
+                        {/* Facebook Link */}
+                        <a
+                            href="https://www.facebook.com/coffeebeercafe.batangas"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="Facebook"
+                        >
+                            <FontAwesomeIcon
+                                icon={faFacebook}
+                                className="text-white sm:w-8 w-4 sm:h-8 h-4"
+                            />
+                        </a>
 
-                        <FontAwesomeIcon
-                            icon={faInstagram}
-                            className="text-white sm:w-8 w-4 sm:h-8 h-4"
-                        />
+                        {/* Instagram Link */}
+                        <a
+                            href="https://www.instagram.com/coffeebeercafe_batangas_branch"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="Instagram"
+                        >
+                            <FontAwesomeIcon
+                                icon={faInstagram}
+                                className="text-white sm:w-8 w-4 sm:h-8 h-4"
+                            />
+                        </a>
 
-                        <FontAwesomeIcon
-                            icon={faTiktok}
-                            className="text-white sm:w-8 w-4 sm:h-8 h-4"
-                        />
+                        {/* TikTok Link */}
+                        <a
+                            href="https://www.tiktok.com/@cbc.batangas"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="TikTok"
+                        >
+                            <FontAwesomeIcon
+                                icon={faTiktok}
+                                className="text-white sm:w-8 w-4 sm:h-8 h-4"
+                            />
+                        </a>
                     </div>
 
                     <hr className="w-[90%]" />

@@ -12,6 +12,7 @@ import PromotionPage from "./pages/customer/PromotionPage";
 import Storesapge from "./pages/customer/Storesapge";
 import SamplePage from "./pages/customer/SamplePage";
 import CategoriesPage from "./pages/admin/CategoryPage";
+import OwnerPage from "./pages/admin/OwnerPage";
 
 function App() {
     return (
@@ -19,11 +20,9 @@ function App() {
             <Routes>
                 {/* Redirect from / to /home */}
                 <Route path="/" element={<Navigate to="/home" />} />
-
                 {/* Other routes */}
                 <Route element={<HomePage />} path="/home" />
                 <Route element={<MenuPage />} path="/menu" />
-
                 <Route element={<DashboardPage />} path="/dashboard" />
                 <Route element={<ManagerPage />} path="/managers" />
                 <Route element={<ProductsPage />} path="/products" />
@@ -35,6 +34,7 @@ function App() {
                 <Route element={<Storesapge />} path="/store-locations" />
                 <Route element={<SamplePage />} path="/sample-page" />
                 <Route element={<CategoriesPage />} path="/categories" />
+                <Route element={<OwnerPage />} path="/owners" />
             </Routes>
         </BrowserRouter>
     );

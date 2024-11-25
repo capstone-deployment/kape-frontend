@@ -42,6 +42,7 @@ const Sidebar = () => {
                             icon: faTachometerAlt,
                         },
                         { path: "/managers", name: "Managers", icon: faUsers },
+                        { path: "/owners", name: "Owners", icon: faUsers },
                         {
                             path: "/products",
                             name: "Products",
@@ -54,24 +55,31 @@ const Sidebar = () => {
                         },
                         { path: "/stores", name: "Stores", icon: faStore },
                         { path: "/promos", name: "Promos", icon: faTag },
-                    ].map((item) => (
-                        <li key={item.path} className="w-full">
-                            <Link
-                                to={item.path}
-                                className={`${
-                                    location.pathname === item.path
-                                        ? "bg-white text-amber-600 hover:text-white"
-                                        : "text-white"
-                                } p-2 rounded transition w-full hover:bg-amber-500 flex items-center space-x-2`}
-                            >
-                                <FontAwesomeIcon
-                                    icon={item.icon}
-                                    className="text-xl"
-                                />
-                                <span>{item.name}</span>
-                            </Link>
-                        </li>
-                    ))}
+                    ]
+                        .filter((item: any) => {
+                            // Filter out paths with '/owner' if the user is not admin
+                            const isAdmin =
+                                localStorage.getItem("role") === "admin";
+                            return isAdmin || !item.path.includes("/owner");
+                        })
+                        .map((item) => (
+                            <li key={item.path} className="w-full">
+                                <Link
+                                    to={item.path}
+                                    className={`${
+                                        location.pathname === item.path
+                                            ? "bg-white text-amber-600 hover:text-white"
+                                            : "text-white"
+                                    } p-2 rounded transition w-full hover:bg-amber-500 flex items-center space-x-2`}
+                                >
+                                    <FontAwesomeIcon
+                                        icon={item.icon}
+                                        className="text-xl"
+                                    />
+                                    <span>{item.name}</span>
+                                </Link>
+                            </li>
+                        ))}
                     <li>
                         <button
                             onClick={handleLogout}
